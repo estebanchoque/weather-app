@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
 
 const API_KEY = "4ae2636d8dfbdc3044bede63951a019b";
 
 function App() {
   const [cities, setCities] = useState([]);
-  console.log(cities);
+
+  const onClose = (cityId) => {
+    setCities((prevCities) => prevCities.filter((elem) => elem.id !== cityId));
+  };
 
   const onSearch = (input) => {
     fetch(
@@ -38,7 +42,11 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <NavBar handleSearch={onSearch} />
+    </div>
+  );
 }
 
 export default App;
