@@ -13,7 +13,11 @@ const Cards = ({ cities, handleClose }) => {
     />
   ));
 
-  return cities ? <div>{renderCities}</div> : <div>Cities not found</div>;
+  if (!cities || !cities.length) {
+    return <div>Please, search and add your city</div>;
+  }
+
+  return <div>{renderCities}</div>;
 };
 
 export default Cards;

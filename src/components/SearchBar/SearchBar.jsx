@@ -11,14 +11,20 @@ const SearchBar = ({ handleSearch }) => {
   const handleInputChange = (e) => setInput(e.target.value);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="d-flex" onSubmit={handleSubmit}>
       <input
-        type="text"
+        className="form-control me-2"
+        type="search"
         placeholder="City..."
+        aria-label="Search"
         value={input}
         onChange={handleInputChange}
       />
-      <input type="submit" value="Add city" />
+      <input
+        className="btn btn-outline-light"
+        type="submit"
+        value="Add city"
+      />
     </form>
   );
 };
