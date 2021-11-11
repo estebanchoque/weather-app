@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SearchBar.css";
 
 const SearchBar = ({ handleSearch }) => {
   const [input, setInput] = useState("");
@@ -21,9 +22,10 @@ const SearchBar = ({ handleSearch }) => {
         onChange={handleInputChange}
       />
       <input
-        className="btn btn-outline-light"
+        className="search-btn btn btn-outline-light"
         type="submit"
-        value="Add city"
+        value={!input ? "Search" : "Add"}
+        disabled={!input}
       />
     </form>
   );

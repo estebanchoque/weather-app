@@ -1,15 +1,18 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../assets/logo.png";
-import "./NavBar.css"
+import "./NavBar.css";
 
 const NavBar = ({ handleSearch }) => (
-  <nav className="navbar navbar-dark bg-primary">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="/">
+  <nav className="navbar navbar-dark bg-primary shadow">
+    <div className="container">
+      <a
+        className="display-1 navbar-brand"
+        href="/"
+        onClick={(e) => e.preventDefault()}
+      >
         <img
           id="logo"
-          className="d-inline-block align-text-center"
           src={logo}
           alt="Logo"
           width="40"
