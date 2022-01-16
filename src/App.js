@@ -19,7 +19,7 @@ function App() {
 
   const onSearch = (input) => {
     const exist = cities?.some((elem) => elem.name === input);
-    if (input && !exist) {
+    if (!exist) {
       setLoading(true);
       fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${API_KEY}&units=metric`
@@ -54,10 +54,6 @@ function App() {
     }
   };
 
-  if (!cities || !cities.length) {
-    return <div className="text-center">Please, search and add your city</div>;
-  }
-
   return (
     <div className="App">
       <header>
@@ -67,6 +63,9 @@ function App() {
       <div className="mt-5">
         {error && <Notification />}
         {loading && <Loader />}
+        {!cities?.length && (
+          <div className="text-center lead">Search and add your city</div>
+        )}
       </div>
 
       <section className="container">
